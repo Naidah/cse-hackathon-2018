@@ -35,7 +35,7 @@ def addEvent():
         time = request.form['time']
         location = request.form['location']
         tags = request.form['tags']
-        system._create_event(name, date, time, location, tags)
+        system.create_event(name, date, time, location, tags, current_user._society)
         return render_template('index.html')
     return render_template('createEvent.html')
  
