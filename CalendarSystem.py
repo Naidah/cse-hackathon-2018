@@ -40,6 +40,9 @@ class CalendarSystem:
 
 	def login(self, username, password):
 		for user in self._users:
-			if username=
+			if username == user._username and password == user._password:
+				login_user(user):
+				return True
+		return False
 
 
