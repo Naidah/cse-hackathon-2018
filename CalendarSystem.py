@@ -1,6 +1,7 @@
 from User import User
 from Event import Event
 from flask_login import login_user
+import pickle
 
 class CalendarSystem:
 	def __init__(self):
@@ -20,6 +21,7 @@ class CalendarSystem:
 	def add_user(self, username, password, society):
 		user = User(username, password, society)
 		self._users.append(user)
+		pickle.dump(self, open('system.p', 'wb'))
 
 	def delete_user(self, username):
 		user = get_user(username)
@@ -31,6 +33,7 @@ class CalendarSystem:
 	def create_event(self, name, date, time, location, tags, society):
 		event = Event(name, date, time, location, tags, society)
 		self._events.append(event)
+		pickle.dump(self, open('system.p', 'wb'))
 
 	def delete_event(self, event_id):
 		event = get_event(event_id)
