@@ -25,12 +25,13 @@ def logout():
 @login_required
 def addEvent():
     if request.method == 'POST':
-        event_name = request.form['event_name']
+        name = request.form['name']
         date = request.form['date']
         time = request.form['time']
         location = request.form['location']
-        tagline = request.form['tagline']
-    
+        tags = request.form['tags']
+        system._create_event(name, date, time, location, tags)
+        return render_template('index.html')
     return render_template('createEvent.html')
 @app.route('/calendar')
 def addEvent():
