@@ -8,7 +8,7 @@
     	<a href="{{url_for('calendar')}}">Search</a>
     	<a href="{{url_for('addEvent')}}">Add Event</a>
     	<a href="{{url_for('logout')}}">Logout</a>
-    {% elif current_user.is_anonymous() %}
+    {% elif current_user.is_anonymous %}
     	<a href="{{url_for('login')}}">Login</a>
     {% endif %}
     </head>
