@@ -16,35 +16,35 @@
             <h5>Society</h5>
             <div id="society-checks">
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-society" id="csesoc">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-society form-entry" id="csesoc">
                     <label class="form-check-society" for="csesoc">CSESoc</label>
                 </div>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-society" id="pcsoc">
-                <label class="form-check-society" for="pcsoc">PCSoc</label>
+                <div class="form-check">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-society form-entry" id="pcsoc">
+                    <label class="form-check-society" for="pcsoc">PCSoc</label>
+                </div>
             </div>
             <h5>Type</h5>
             <div id="tag-checks">
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-type" id="food">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-type form-entry" id="food">
                     <label class="form-check-type" for="food">Food</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-type" id="hackathon">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-type form-entry" id="hackathon">
                     <label class="form-check-type" for="hackathon">hackathon</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-type" id="alcohol">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-type form-entry" id="alcohol">
                     <label class="form-check-type" for="alcohol">Alcohol</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-type" id="charity">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-type form-entry" id="charity">
                     <label class="form-check-type" for="charity">Charity</label>
                 </div>
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-type" id="workshop">
-                    <label class="form-check-type" for="workshop">Charity</label>
+                    <input onclick="updateTags()" type="checkbox" class="form-check-type form-entry" id="workshop">
+                    <label class="form-check-type" for="workshop">Workshop</label>
                 </div>
             </div>
         </div>
@@ -53,7 +53,7 @@
 
         <!-- Calendar Space -->
         {% for event in e %}
-            {% set d = event.date.split(":") %}
+            {% set d = event.date.split("-") %}
             <script type="text/javascript">addEvent({{event._id}}, "{{event.name}}", {{d[0]}}, {{d[1]}}, {{d[2]}}, "{{event.location}}")</script>
             {% for tag in event.tags %}
                 <script type="text/javascript">addEventTag({{event._id}}, "{{tag}}")</script>
