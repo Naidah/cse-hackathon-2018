@@ -12,7 +12,7 @@
     	<li class="nav-item "><a href="{{url_for('calendar')}}">Search</a></li>
     	<li class="nav-item "><a href="{{url_for('addEvent')}}">Add Event</a></li>
     	<li class="nav-item "><a href="{{url_for('logout')}}">Logout</a></li>
-    {% elif current_user.is_anonymous() %}
+    {% elif current_user.is_anonymous %}
     	<li class="nav-item "><a href="{{url_for('login')}}">Login</a></li>
 	{% endif %}
 
