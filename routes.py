@@ -22,5 +22,13 @@ def login():
 def logout():
     auth_manager.logout()
     return redirect(url_for('home'))
+    
+@app.route('/addEvent')
+@login_required
+def addEvent():
+
+@app.route('/calendar')
+def addEvent():
+    
 
 
