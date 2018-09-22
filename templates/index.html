@@ -8,10 +8,20 @@
 {% block content %}
 
     <!-- navbar -->
-    <div class="navbar d-inline-block w-100 h-40" style="background-color: blue">
-        <div class="nav-item">For Foods Sake</div>
+  <!--   <div class="navbar d-inline-block w-100 h-40" style="background-color: blue">
+        <div class="nav-item">For Food's Sake</div>
         <div class="nav-item float-right">Login</div>
-    </div>
+    </div> -->
+
+    <nav style="background-color: fuchsia; margin:  10px 0 10px 0;" class="navbar navbar-expand-sm navbar-dark bg-primary"">
+  <a class="navbar-brand" style="margin-left: 13px"><b>For Food's Sake</b></a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item ">
+      <a class="nav-link " href="{{ url_for('login') }}">Login</a>
+    </li>
+  </ul>
+
+    </nav>
 
     <!-- Calendar Wrapper -->
     <div class="h-80 d-flex flex-row">
