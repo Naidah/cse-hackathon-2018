@@ -1,5 +1,8 @@
 class Event():
+	Event.id = 0
 	def __init__(self, name, date, time, location, tags):
+		self._id = Event.id
+		Event.id += 1
 		self._name = name
 		self._date = date
 		self._time = time
