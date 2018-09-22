@@ -14,9 +14,15 @@
         <div align="left" padding-top="5%" class="col-2 d-block" style="">
             <h3 align="center" style="margin-top: 90px" >Filter</h3>
             <h5>Society</h5>
-            <div class="form-check">
-            <input type="checkbox" class="form-check-society" id="csesoc">
-            <label class="form-check-society" for="csesoc">CSESoc</label>
+            <div id="society-checks">
+                <div class="form-check">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-society form-entry" id="csesoc">
+                    <label class="form-check-society" for="csesoc">CSESoc</label>
+                </div>
+                <div class="form-check">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-society form-entry" id="pcsoc">
+                    <label class="form-check-society" for="pcsoc">PCSoc</label>
+                </div>
             </div>
             <div class="form-check">
             <input type="checkbox" class="form-check-society" id="pcsoc">
@@ -24,22 +30,28 @@
           </div>
           <br>
             <h5>Type</h5>
-            <div class="form-check">
-            <input type="checkbox" class="form-check-type" id="food">
-            <label class="form-check-type" for="food">Food</label>
-          </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-type" id="hackathon">
-            <label class="form-check-type" for="hackathon">Hackathon</label>
-          </div>
-            <div class="form-check">
-            <input type="checkbox" class="form-check-type" id="alcohol">
-            <label class="form-check-type" for="alcohol">Alcohol</label>
-          </div>
-            <div class="form-check">
-            <input type="checkbox" class="form-check-type" id="charity">
-            <label class="form-check-type" for="charity">Charity</label>
-          </div>
+            <div id="tag-checks">
+                <div class="form-check">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-type form-entry" id="food">
+                    <label class="form-check-type" for="food">Food</label>
+                </div>
+                <div class="form-check">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-type form-entry" id="hackathon">
+                    <label class="form-check-type" for="hackathon">hackathon</label>
+                </div>
+                <div class="form-check">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-type form-entry" id="alcohol">
+                    <label class="form-check-type" for="alcohol">Alcohol</label>
+                </div>
+                <div class="form-check">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-type form-entry" id="charity">
+                    <label class="form-check-type" for="charity">Charity</label>
+                </div>
+                <div class="form-check">
+                    <input onclick="updateTags()" type="checkbox" class="form-check-type form-entry" id="workshop">
+                    <label class="form-check-type" for="workshop">Workshop</label>
+                </div>
+            </div>
         </div>
 
 

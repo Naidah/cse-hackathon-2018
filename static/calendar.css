@@ -16,3 +16,36 @@ td {
 .off-month {
     background-color: #F5F5F5;
 }
+
+.dayNumber {
+    display: inline-block;
+}
+
+.event {
+    text-align: center;
+    display: inline-block;
+    width: 80%;
+    float: right;
+    margin: 2px 5px 5px 0px;
+    font-size: 12px;
+}
+
+.event-food {
+    background-color: #8EB6FB;
+}
+
+.event-hackathon {
+    background-color: #A23B72;
+}
+
+.event-alcohol {
+    background-color: #F18101;
+}
+
+.event-charity {
+    background-color: #F75E2D;
+}
+
+.event-workshop {
+    background-color: #1BEF2B;
+}

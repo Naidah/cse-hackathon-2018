@@ -38,16 +38,17 @@ function initialiseCells(row, col) {
     }
 
     if (thisMonth != month) {
-        currCell.classList.add("off-month")
+        currCell.classList.add("off-month");
     }
     var content = document.createElement("div")
     content.innerHTML = date.toString();
-    currCell.appendChild(content)
+    content.classList.add("dayNumber");
+    currCell.appendChild(content);
 
     for (let i = 0; i < eventList.length; i++) {
         let e = eventList[i];
         if (e.day == date && e.month == thisMonth+1 && e.year == year) {
-            giveCellEvent(currCell, e)
+            giveCellEvent(currCell, e);
         }
     }
 }
@@ -60,9 +61,10 @@ function setPrevMonth() {
     for (let i = 0; i < 6; i++) {
         for (let j = 0; j < 7; j++) {
             resetCell(i, j);
-            initialiseCells(i, j)
+            initialiseCells(i, j);
         }
     }
+    updateTags();
 }
 
 function setNextMonth() {
@@ -76,6 +78,7 @@ function setNextMonth() {
             initialiseCells(i, j)
         }
     }
+    updateTags();
 }
 
 function addEvent(i, n, y, m, d, l) {
@@ -102,5 +105,92 @@ function addEventTag(id, tag) {
 function giveCellEvent(cell, event) {
     var content = document.createElement("div");
     content.innerHTML = event.name;
-    cell.appendChild(content)
+    content.classList.add("event");
+    for (let i = 0; i < event.tags.length; i++) {
+        content.classList.add("event-" + event.tags[i]);
+    }
+
+    cell.appendChild(content);
+}
+
+function updateTags() {
+    var socs = document.getElementById("society-checks").childNodes;
+    var tags = document.getElementById("tag-checks").childNodes;
+    var socList = [];
+    var tagList = []
+
+    for (var i = 0; i < socs.length; i++) {
+        if (socs[i].classList) {
+            if (socs[i].classList.contains("form-check")) {
+                for (let j = 0; j < socs[i].childNodes.length; j++) {
+                    let currNode = socs[i].childNodes[j];
+                    if (currNode.classList) {
+                        if (currNode.classList.contains("form-entry")) {
+                            if (currNode.checked) {
+                                socList.push(currNode.getAttribute("id"));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    for (var i = 0; i < tags.length; i++) {
+        if (tags[i].classList) {
+            if (tags[i].classList.contains("form-check")) {
+                for (let j = 0; j < tags[i].childNodes.length; j++) {
+                    let currNode = tags[i].childNodes[j];
+                    if (currNode.classList) {
+                        if (currNode.classList.contains("form-entry")) {
+                            if (currNode.checked) {
+                                console.log(currNode.getAttribute("id"))
+                                tagList.push(currNode.getAttribute("id"))
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    displayEvents(socList, tagList);
+}
+
+function displayEvents(socs, tags) {
+    for (let i = 0; i < 6; i++) {
+        for (let j = 0; j < 7; j++) {
+            var currNode = document.getElementById("cell-"+i.toString()+"-"+j.toString());
+            for (var n = 1; n < currNode.childNodes.length; n++) {
+                var currDiv = currNode.childNodes[n];
+                var valid = 1;
+
+                if (socs.length > 0) {
+                    // valid = 0;
+                    // console.log(currDiv.classList)
+                    // for (let t = 0; t < currDiv.dataset.tags.length; t++) {
+                    //     if (socs.indexOf(currDiv.dataset.tags[0]) >= 0) {
+                    //         valid = 1;
+                    //     }
+                    // }
+                }
+
+                if (tags.length > 0) {
+                    valid = 0;
+                    for (let p = 0; p < tags.length; p++) {
+                        if (currDiv.classList.contains("event-"+tags[p])) {
+                            valid = 1;
+                        }
+                    }
+                }
+                console.log(valid)
+
+                if (valid == 0) {
+                    currDiv.style.display = "none";
+                } else {
+                    currDiv.style.display = "inline-block";
+                }
+            }
+        }
+    }
 }
