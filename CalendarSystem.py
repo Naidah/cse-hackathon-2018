@@ -1,5 +1,6 @@
 from User import User
 from Event import Event
+from flask_login import login_user
 
 class CalendarSystem:
 	def __init__(self):
@@ -16,8 +17,8 @@ class CalendarSystem:
 			if id == event._id:
 				return event
 
-	def add_user(self, username, password):
-		user = User(username, password)
+	def add_user(self, username, password, society):
+		user = User(username, password, society)
 		self._users.append(user)
 
 	def delete_user(self, username):
@@ -27,8 +28,8 @@ class CalendarSystem:
 			return True
 		return False 
 
-	def create_event(self, name, date, time, location, tags):
-		event = Event(name, date, time, location, tags)
+	def create_event(self, name, date, time, location, tags, society):
+		event = Event(name, date, time, location, tags, society)
 		self._events.append(event)
 
 	def delete_event(self, event_id):

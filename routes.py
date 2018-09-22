@@ -3,11 +3,11 @@ from flask_login import login_required, current_user, logout_user
 
 from server import app, system
 
-@app.route('/')
-def calendar():
-	return render_template("index.html")
+# @app.route('/')
+# def calendar():
+# 	return render_template("index.html")
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
 	if request.method == 'POST':
 		username = request.form['username']
@@ -21,5 +21,6 @@ def login():
 def logout():
 	logout_user()
 	return redirect(url_for('calendar'))
+
 
 

@@ -1,6 +1,6 @@
 class Event():
 	event_id = 0
-	def __init__(self, name, date, time, location, tags):
+	def __init__(self, name, date, time, location, tags, society):
 		self._id = event_id
 		event_id += 1
 		self._name = name
@@ -8,6 +8,7 @@ class Event():
 		self._time = time
 		self._location = location
 		self._tags = tags
+		self._society = society
 
 	@property
 	def name(self):
@@ -28,3 +29,7 @@ class Event():
 	@property
 	def tags(self):
 		return self._tags
+	
+	@property
+	def society(self):
+		return self._society
