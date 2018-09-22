@@ -5,6 +5,11 @@ from server import app, system, auth_manager
 
 @app.route('/')
     def calendar():
+        pass
+    return render_template('index.html')
+    
+@app.route('/calendar')
+return render_template('index.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -33,8 +38,4 @@ def addEvent():
         system._create_event(name, date, time, location, tags)
         return render_template('index.html')
     return render_template('createEvent.html')
-@app.route('/calendar')
-def addEvent():
-    
-    
-    
+ 
