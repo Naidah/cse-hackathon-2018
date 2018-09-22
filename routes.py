@@ -29,10 +29,8 @@ def logout():
 def addEvent():
     if request.method == 'POST':
         name = request.form['name']
-        date = request.form['date_time']
-        time = request.form['date_time']
-        print(date)
-        print(time)
+        date = request.form['date_time'][:10]
+        time = request.form['date_time'][11:]
         location = request.form['location']
         tags = request.form.getlist('type')
         system.create_event(name, date, time, location, tags, current_user._society)
