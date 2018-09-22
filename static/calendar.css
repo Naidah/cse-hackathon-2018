@@ -1,5 +1,5 @@
 tr {
-    height: calc((80vh / 6));
+    height: calc((70vh / 6));
 }
 
 td {
@@ -10,4 +10,9 @@ td {
 
 body {
     text-align: center;
+}
+
+#monthLabel {
+    text-align: center;
+    height: 8vh;
 }

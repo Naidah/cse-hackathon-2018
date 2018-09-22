@@ -29,14 +29,16 @@
         <!-- Left Column -->
         <div class="col-2 d-block" style="background-color: pink"></div>
         <!-- Calendar Space -->
-        <div class="col-10 d-block float-right" style="background-color: grey">
-            <div></div>
+        <div class="col-10 d-block float-right">
+            <div id="monthLabel">Month</div>
+            <script type="text/javascript">setMonth(3)</script>
             <table id="calendar" class="table-bordered">
                 <tbody>
                     {% for i in range(6) %}
                         <tr>
                         {% for j in range(7) %}
-                            <script type="text/javascript">test()</script>
+                            <td id="cell-{{i}}-{{j}}"></td>
+                            <script type="text/javascript">initialiseCells({{i}}, {{j}})</script>
                         {% endfor %}
                         </tr>
                     {% endfor %}
