@@ -38,16 +38,17 @@ function initialiseCells(row, col) {
     }
 
     if (thisMonth != month) {
-        currCell.classList.add("off-month")
+        currCell.classList.add("off-month");
     }
     var content = document.createElement("div")
     content.innerHTML = date.toString();
-    currCell.appendChild(content)
+    content.classList.add("dayNumber");
+    currCell.appendChild(content);
 
     for (let i = 0; i < eventList.length; i++) {
         let e = eventList[i];
         if (e.day == date && e.month == thisMonth+1 && e.year == year) {
-            giveCellEvent(currCell, e)
+            giveCellEvent(currCell, e);
         }
     }
 }
@@ -102,5 +103,6 @@ function addEventTag(id, tag) {
 function giveCellEvent(cell, event) {
     var content = document.createElement("div");
     content.innerHTML = event.name;
-    cell.appendChild(content)
+    content.classList.add("event");
+    cell.appendChild(content);
 }
