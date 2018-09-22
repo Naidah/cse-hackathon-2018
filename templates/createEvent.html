@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<div style="text-align:center;margin-top:7%;">
+<style>
+input {
+    margin-bottom: 1%;
+}
+body {
+    text-align:center;
+}
+label {
+    font-family:"Arial";
+    font-size:150%;
+}
+</style>
+<div style='margin-top:3%;'>
     {% if success %}<h3 style="color:green">Event successfully added!</h3>{% endif %}
 <h1>Add Event</h1>
 <form method='POST' action="addEvent">
