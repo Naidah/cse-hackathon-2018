@@ -4,6 +4,10 @@
 input {
     margin-bottom: 1%;
 }
+input[type=checkbox]{
+    transform: scale(2);
+    margin-right: 10px;
+}
 body {
     text-align:center;
 }
@@ -11,8 +15,12 @@ label {
     font-family:"Arial";
     font-size:150%;
 }
+li {
+    list-style-type: none;
+    align-items: flex-end;
+}
 </style>
-<div style='margin-top:3%;'>
+<div style='margin-top:2%;'>
     {% if success %}<h3 style="color:green">Event successfully added!</h3>{% endif %}
 <h1>Add Event</h1>
 <form method='POST' action="addEvent">
@@ -22,15 +30,16 @@ label {
     <input type='datetime-local' name='date_time' required><br>
     <label>Location</label><br>
     <input type='text' name='location' required><br>
-    <label>Tags</label><br>
-    <input type="checkbox" name="type" value="Food">Food<br>
-    <input type="checkbox" name="type" value="Alcohol">Alcohol<br>
-    <input type="checkbox" name="type" value="Seminar">Seminar<br>
-    <input type="checkbox" name="type" value="Workshop">Workshop<br>
-    <input type="checkbox" name="type" value="Charity">Charity<br>
-    <input type="checkbox" name="type" value="Physical">Physical<br>
-    <input type="checkbox" name="type" value="Entertainment">Entertainment<br>
+    <label style='font-size:250%;'>Tags:</label><br>
+    <ul>
+    <li><input type="checkbox" name="type" value="food">Food</li><br>
+    <li><input type="checkbox" name="type" value="alcohol">Alcohol</li><br>
+    <li><input type="checkbox" name="type" value="seminar">Seminar</li><br>
+    <li><input type="checkbox" name="type" value="workshop">Workshop</li><br>
+    <li><input type="checkbox" name="type" value="charity">Charity</li><br>
+    <li><input type="checkbox" name="type" value="physical">Physical</li><br>
+    <li><input type="checkbox" name="type" value="entertainment">Entertainment</li><br>
+    </ul>
     <input type='submit' value='Add Event'><br>
-
 </form></div>
 {% endblock %}
