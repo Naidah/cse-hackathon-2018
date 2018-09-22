@@ -1,27 +1,38 @@
 from flask import render_template, request, redirect, url_for, abort
-from flask_login import login_required, current_user
+from flask_login import login_required, current_user, logout_user
 
-from server import app#, system, auth_manager
-
-@app.route('/')
-def calendar():
-    return render_template('index.html')
+from server import app, system
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        if system.login_customer(username, password):
-            # Next helps with redirecting the user to their previous page
-            redir = request.args.get('next')
-            return redirect(redir or url_for('home'))
-    return render_template('login.html')
+	if request.method == 'POST':
+		username = request.form['username']
+		password = request.form['password']
+		if system.login(username, password):
+			return redirect(url_for('index'))
+		else:
+			return render_template('login.html', fail=True)
+	return render_template('login.html')
+
+@app.route('/')
+def calendar():
+	return render_template('index.html')
 
 @app.route('/logout')
 @login_required
 def logout():
-    auth_manager.logout()
-    return redirect(url_for('home'))
+	logout_user()
+	return redirect(url_for('index'))
 
-
+@app.route('/addEvent')
+@login_required
+def addEvent():
+    if request.method == 'POST':
+        name = request.form['name']
+        date = request.form['date']
+        time = request.form['time']
+        location = request.form['location']
+        tags = request.form['tags']
+        system.create_event(name, date, time, location, tags, current_user._society)
+        return render_template('index.html')
+    return render_template('createEvent.html')

@@ -1,33 +1,44 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <title>Calendar</title>
-    <script type="text/javascript" src="{{url_for('static', filename='calendar.js')}}"></script>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='calendar.css')}}">
+	<title>Calendar</title>
+	<script type="text/javascript" src="{{url_for('static', filename='calendar.js')}}"></script>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='calendar.css')}}">
 {% endblock %}
 
 {% block content %}
-
-    <!-- navbar -->
-  <!--   <div class="navbar d-inline-block w-100 h-40" style="background-color: blue">
-        <div class="nav-item">For Food's Sake</div>
-        <div class="nav-item float-right">Login</div>
-    </div> -->
-
-    <nav style="background-color: fuchsia; margin:  10px 0 10px 0;" class="navbar navbar-expand-sm navbar-dark bg-primary"">
-  <a class="navbar-brand" style="margin-left: 13px"><b>For Food's Sake</b></a>
-  <ul class="navbar-nav ml-auto">
-    <li class="nav-item ">
-      <a class="nav-link " href="{{ url_for('login') }}">Login</a>
-    </li>
-  </ul>
-
-    </nav>
-
     <!-- Calendar Wrapper -->
     <div class="h-80 d-flex flex-row">
         <!-- Left Column -->
-        <div class="col-2 d-block" style="background-color: pink"></div>
+        <div align="left" padding-top="5%" class="col-2 d-block" style="background-color: pink">
+            <h3 align="center" style="margin-top: 10px" >Filter</h3>
+            <h5>Society</h5>
+            <div class="form-check">
+            <input type="checkbox" class="form-check-society" id="csesoc">
+            <label class="form-check-society" for="csesoc">CSESoc</label>
+            </div>
+            <div class="form-check">
+            <input type="checkbox" class="form-check-society" id="pcsoc">
+            <label class="form-check-society" for="pcsoc">PCSoc</label>
+          </div>
+            <h5>Type</h5>
+            <div class="form-check">
+            <input type="checkbox" class="form-check-type" id="food">
+            <label class="form-check-type" for="food">Food</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-type" id="hackathon">
+            <label class="form-check-type" for="hackathon">hackathon</label>
+          </div>
+            <div class="form-check">
+            <input type="checkbox" class="form-check-type" id="alcohol">
+            <label class="form-check-type" for="alcohol">Alcohol</label>
+          </div>
+            <div class="form-check">
+            <input type="checkbox" class="form-check-type" id="charity">
+            <label class="form-check-type" for="charity">Charity</label>
+          </div>
+        </div>
         <!-- Calendar Space -->
         <div class="col-10 d-block float-right">
             <div class="d-flex flex-row justify-content-around">
