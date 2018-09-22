@@ -16,8 +16,6 @@ def login():
 
 @app.route('/')
 def calendar():
-	for event in system._events:
-		print(event._society)
 	return render_template('index.html', e=system._events)
 
 @app.route('/logout')
