@@ -3,7 +3,6 @@
 
 {% block head %}
 	<title>Calendar</title>
-	{{url_for('static', filename='calendar.js')}}
 	<script type="text/javascript" src="{{url_for('static', filename='calendar.js')}}"></script>
 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='calendar.css')}}">
 {% endblock %}
@@ -46,8 +45,13 @@
 
         <!-- Calendar Space -->
         {% for event in e %}
-            {{event.tags}}
+            {% set d = event.date.split("-") %}
+            <script type="text/javascript">addEvent({{event._id}}, "{{event.name}}", {{d[0]}}, {{d[1]}}, {{d[2]}}, "{{event.location}}")</script>
+            {% for tag in event.tags %}
+                <script type="text/javascript">addEventTag({{event._id}}, "{{tag}}")</script>
+            {% endfor %}
         {% endfor %}
+        <script type="text/javascript">console.log(eventList)</script>
         <div class="col-10 d-block float-right">
             <div class="d-flex flex-row justify-content-around">
                 <div onclick="setPrevMonth()" style="display: inline;">GO LEFT</div>

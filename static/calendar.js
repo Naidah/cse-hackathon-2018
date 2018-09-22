@@ -16,7 +16,9 @@ function setMonth(newMonth) {
 
 function resetCell(row, col) {
     var currCell = document.getElementById("cell-"+row.toString()+"-"+col.toString());
-    currCell.removeChild(currCell.firstChild);
+    while (currCell.firstChild) {
+        currCell.removeChild(currCell.firstChild);
+    }
     currCell.classList.remove("off-month");
 }
 
@@ -41,6 +43,13 @@ function initialiseCells(row, col) {
     var content = document.createElement("div")
     content.innerHTML = date.toString();
     currCell.appendChild(content)
+
+    for (let i = 0; i < eventList.length; i++) {
+        let e = eventList[i];
+        if (e.day == date && e.month == thisMonth+1 && e.year == year) {
+            giveCellEvent(currCell, e)
+        }
+    }
 }
 
 function setPrevMonth() {
@@ -69,14 +78,29 @@ function setNextMonth() {
     }
 }
 
-function addEvent(n, d, m, y, l, ts) {
-    console.log(ts);
+function addEvent(i, n, y, m, d, l) {
     var newEvent = {
+        id: i,
         name: n,
         day: d,
         month: m,
         year: y,
-        location: l
+        location: l,
+        tags: []
     };
     eventList.push(newEvent);
+}
+
+function addEventTag(id, tag) {
+    for (var i = 0; i < eventList.length; i++) {
+        if (eventList[i].id == id) {
+            eventList[i].tags.push(tag);
+        }
+    }
+}
+
+function giveCellEvent(cell, event) {
+    var content = document.createElement("div");
+    content.innerHTML = event.name;
+    cell.appendChild(content)
 }
