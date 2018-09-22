@@ -18,4 +18,3 @@ def load_user(username):
     return system.get_user(username)
 
 system = pickle.load(open('system.p', 'rb'))
-
