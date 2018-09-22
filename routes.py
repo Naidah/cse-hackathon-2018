@@ -9,7 +9,7 @@ def login():
 		username = request.form['username']
 		password = request.form['password']
 		if system.login(username, password):
-			return redirect(url_for('index'))
+			return redirect(url_for('calendar'))
 		else:
 			return render_template('login.html', fail=True)
 	return render_template('login.html')
