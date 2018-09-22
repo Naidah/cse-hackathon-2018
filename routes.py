@@ -15,7 +15,8 @@ def login():
 	return render_template('login.html')
 
 @app.route('/calendar')
-return redirect(url_for('calendar'))
+def calendar():
+	return redirect(url_for('calendar'))
 
 @app.route('/logout')
 @login_required
@@ -36,6 +37,3 @@ def addEvent():
         return render_template('index.html')
     return render_template('createEvent.html')
 
-@app.route('/calendar')
-def addEvent():
-	return redirect(url_for('calendar'))
