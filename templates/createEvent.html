@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
-{% if success %}<h3>Event successfully added!</h3>{% endif %}
 {% block content %}
-<div style="text-align:center;margin-top:7%;"><h1>Add Event</h1>
+<div style="text-align:center;margin-top:7%;">
+    {% if success %}<h3 style="color:green">Event successfully added!</h3>{% endif %}
+<h1>Add Event</h1>
 <form method='POST' action="addEvent">
     <label>Name</label><br>
-    <input type='text' name='name' value='required'><br>
+    <input type='text' name='name' required><br>
     <label>Date and Time</label><br>
-    <input type='datetime-local' name='data_time' value='required'><br>
+    <input type='datetime-local' name='date_time' required><br>
     <label>Location</label><br>
-    <input type='text' name='location' value='required'><br>
+    <input type='text' name='location' required><br>
     <label>Tags</label><br>
     <input type="checkbox" name="type" value="Food">Food<br>
     <input type="checkbox" name="type" value="Alcohol">Alcohol<br>

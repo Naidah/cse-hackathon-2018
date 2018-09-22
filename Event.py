@@ -1,8 +1,7 @@
 class Event():
-	event_id = 0
+	__id = 0
 	def __init__(self, name, date, time, location, tags, society):
-		self._id = event_id
-		event_id += 1
+		self._id = self._generate_id()
 		self._name = name
 		self._date = date
 		self._time = time
@@ -33,3 +32,7 @@ class Event():
 	@property
 	def society(self):
 		return self._society
+
+	def _generate_id(self):
+		Event.__id += 1
+		return Event.__id
