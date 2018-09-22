@@ -14,14 +14,16 @@ def login():
 		password = request.form['password']
 		if system.login(username, password):
 			return redirect(url_for('calendar'))
+		else:
+			return render_template('login.html', fail=True)
 	return render_template('login.html')
 
 @app.route('/logout')
 @login_required
 def logout():
 	logout_user()
-    return redirect(url_for('calendar'))
-    
+	return redirect(url_for('calendar'))
+
 @app.route('/addEvent')
 @login_required
 def addEvent():
