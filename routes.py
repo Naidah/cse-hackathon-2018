@@ -9,20 +9,20 @@ def login():
 		username = request.form['username']
 		password = request.form['password']
 		if system.login(username, password):
-			return redirect(url_for('calendar'))
+			return redirect(url_for('index'))
 		else:
 			return render_template('login.html', fail=True)
 	return render_template('login.html')
 
 @app.route('/')
 def calendar():
-	return render_template('calendar.html')
+	return render_template('index.html')
 
 @app.route('/logout')
 @login_required
 def logout():
 	logout_user()
-	return redirect(url_for('calendar'))
+	return redirect(url_for('index'))
 
 @app.route('/addEvent', methods=['POST', 'GET'])
 @login_required
@@ -36,4 +36,3 @@ def addEvent():
         system.create_event(name, date, time, location, tags, current_user._society)
         return render_template('createEvent.html', success=True)
     return render_template('createEvent.html')
-
