@@ -33,7 +33,7 @@ def addEvent():
         system.create_event(name, date, time, location, tags, current_user._society)
         return render_template('index.html')
     return render_template('createEvent.html')
-<<<<<<< HEAD
+
 @app.route('/calendar')
 def addEvent():
 	return redirect(url_for('calendar'))
