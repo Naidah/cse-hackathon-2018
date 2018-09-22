@@ -12,9 +12,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
         if system.login_customer(username, password):
-            # Next helps with redirecting the user to their previous page
-            redir = request.args.get('next')
-            return redirect(redir or url_for('home'))
+            return redirect(url_for('calendar'))
     return render_template('login.html')
 
 @app.route('/logout')
