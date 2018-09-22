@@ -12,15 +12,15 @@ class CalendarSystem:
 				return user
 
 	def get_event(self, id):
-		for event in self._events
+		for event in self._events:
 			if id == event._id:
 				return event
 
-	def add_user(self, usernamee, password):
+	def add_user(self, username, password):
 		user = User(username, password)
-		self.users.append(user)
+		self._users.append(user)
 
-	def delete_user(self, username)
+	def delete_user(self, username):
 		user = get_user(username)
 		if user:
 			self._users.remove(user)
@@ -41,7 +41,7 @@ class CalendarSystem:
 	def login(self, username, password):
 		for user in self._users:
 			if username == user._username and password == user._password:
-				login_user(user):
+				login_user(user)
 				return True
 		return False
 

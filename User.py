@@ -1,4 +1,6 @@
-class User(UserMixin, ABC):
+from flask_login import UserMixin
+
+class User(UserMixin):
     def __init__(self, username, password):
         self._username = username
         self._password = password
@@ -8,7 +10,7 @@ class User(UserMixin, ABC):
         return self._username
 
     @property
-    def password(self)
+    def password(self):
         return self._password
 
     def get_id(self):
