@@ -3,20 +3,24 @@ from flask_login import login_required, current_user, logout_user
 
 from server import app, system
 
+"""TEST CODE"""
+system.create_event("Test", "2018-06-02", "12:30", "Ainsworth", ["bob", "jane"], "CSE")
+
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 	if request.method == 'POST':
 		username = request.form['username']
 		password = request.form['password']
 		if system.login(username, password):
-			return redirect(url_for('index'))
+			return redirect(url_for('calendar'))
 		else:
 			return render_template('login.html', fail=True)
 	return render_template('login.html')
 
 @app.route('/')
 def calendar():
-	return render_template('index.html')
+	return render_template('index.html', e=system._events)
 
 @app.route('/logout')
 @login_required

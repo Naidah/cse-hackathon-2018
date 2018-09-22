@@ -4,19 +4,20 @@ var monthNames = ["January", "February", "March", "April", "May", "June", "July"
 var firstDay = 5;
 var year = 2018;
 
+var eventList = []
+
 function setMonth(newMonth) {
     month = newMonth;
-    document.getElementById("monthLabel").innerHTML = monthNames[month];
+    document.getElementById("monthLabel").innerHTML = monthNames[month] + " " + year.toString();
     var currDate = year.toString() + "-" + (month+1).toString() + "-01"
-    console.log(currDate)
     var d = new Date(currDate);
-    console.log(d)
     firstDay = d.getDay();
 }
 
 function resetCell(row, col) {
     var currCell = document.getElementById("cell-"+row.toString()+"-"+col.toString());
     currCell.removeChild(currCell.firstChild);
+    currCell.classList.remove("off-month");
 }
 
 function initialiseCells(row, col) {
@@ -34,12 +35,18 @@ function initialiseCells(row, col) {
         thisMonth = nextMonth;
     }
 
+    if (thisMonth != month) {
+        currCell.classList.add("off-month")
+    }
     var content = document.createElement("div")
     content.innerHTML = date.toString();
     currCell.appendChild(content)
 }
 
 function setPrevMonth() {
+    if (month == 0) {
+        year--;
+    }
     setMonth(((month-1)%12+12)%12);
     for (let i = 0; i < 6; i++) {
         for (let j = 0; j < 7; j++) {
@@ -50,6 +57,9 @@ function setPrevMonth() {
 }
 
 function setNextMonth() {
+    if (month == 11) {
+        year++;
+    }
     setMonth(((month+1)%12+12)%12);
     for (let i = 0; i < 6; i++) {
         for (let j = 0; j < 7; j++) {
@@ -57,4 +67,16 @@ function setNextMonth() {
             initialiseCells(i, j)
         }
     }
+}
+
+function addEvent(n, d, m, y, l, ts) {
+    console.log(ts);
+    var newEvent = {
+        name: n,
+        day: d,
+        month: m,
+        year: y,
+        location: l
+    };
+    eventList.push(newEvent);
 }

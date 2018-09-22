@@ -4,15 +4,15 @@ tr {
 
 td {
     font-size: 10px;
-    text-align: center;
     width: calc(80vw / 7);
-}
-
-body {
-    text-align: center;
+    vertical-align: top;
 }
 
 #monthLabel {
     text-align: center;
     height: 8vh;
+}
+
+.off-month {
+    background-color: #F5F5F5;
 }
