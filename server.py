@@ -14,5 +14,5 @@ login_manager.login_view = 'login'
 system = CalendarSystem()
 
 # dummy login
-	for username in ['Lucas', "Aidan", "Lilian", "Sarah"]:
-		system.add_user(username, 'pass')
+for username in ['Lucas', "Aidan", "Lilian", "Sarah"]:
+	system.add_user(username, 'pass')
