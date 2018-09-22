@@ -3,10 +3,6 @@ from flask_login import login_required, current_user, logout_user
 
 from server import app, system
 
-# @app.route('/')
-# def calendar():
-# 	return render_template("index.html")
-
 @app.route('/', methods=['GET', 'POST'])
 def login():
 	if request.method == 'POST':
@@ -15,6 +11,9 @@ def login():
 		if system.login(username, password):
 			return redirect(url_for('calendar'))
 	return render_template('login.html')
+
+@app.route('/calendar')
+return redirect(url_for('calendar'))
 
 @app.route('/logout')
 @login_required
@@ -26,13 +25,15 @@ def logout():
 @login_required
 def addEvent():
     if request.method == 'POST':
-        event_name = request.form['event_name']
+        name = request.form['name']
         date = request.form['date']
         time = request.form['time']
         location = request.form['location']
-        tagline = request.form['tagline']
-    
+        tags = request.form['tags']
+        system.create_event(name, date, time, location, tags, current_user._society)
+        return render_template('index.html')
     return render_template('createEvent.html')
+<<<<<<< HEAD
 @app.route('/calendar')
 def addEvent():
 	return redirect(url_for('calendar'))
