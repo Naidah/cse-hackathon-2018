@@ -2,6 +2,7 @@
 
 {% block head %}
 	<title>Calendar</title>
+	{{url_for('static', filename='calendar.js')}}
 	<script type="text/javascript" src="{{url_for('static', filename='calendar.js')}}"></script>
 	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='calendar.css')}}">
 {% endblock %}
