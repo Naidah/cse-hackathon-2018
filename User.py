@@ -10,3 +10,6 @@ class User(UserMixin, ABC):
     @property
     def password(self)
         return self._password
+
+    def get_id(self):
+        return self._username
