@@ -4,7 +4,7 @@ from flask_login import login_required, current_user
 from server import app, system, auth_manager
 
 @app.route('/')
-    def calendar():
+	def calendar():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
