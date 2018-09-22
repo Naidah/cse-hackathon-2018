@@ -1,5 +1,5 @@
 from flask import render_template, request, redirect, url_for, abort
-from flask_login import login_required, current_user
+from flask_login import login_required, current_user, logout_user
 
 from server import app, system, auth_manager
 
@@ -18,7 +18,7 @@ def login():
 @app.route('/logout')
 @login_required
 def logout():
-    auth_manager.logout()
-    return redirect(url_for('home'))
+	logout_user()
+    return redirect(url_for('calendar'))
 
 
