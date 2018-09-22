@@ -26,7 +26,10 @@ def logout():
 @app.route('/addEvent')
 @login_required
 def addEvent():
-
+    if request.method == 'POST':
+        
+    
+    return render_template('createEvent.html')
 @app.route('/calendar')
 def addEvent():
     
