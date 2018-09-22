@@ -104,5 +104,8 @@ function giveCellEvent(cell, event) {
     var content = document.createElement("div");
     content.innerHTML = event.name;
     content.classList.add("event");
+    for (let i = 0; i < event.tags.length; i++) {
+        content.classList.add("event-" + event.tags[i]);
+    }
     cell.appendChild(content);
 }

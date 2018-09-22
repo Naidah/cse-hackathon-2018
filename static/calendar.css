@@ -24,9 +24,28 @@ td {
 .event {
     text-align: center;
     display: inline-block;
-    background-color: #DDF;
     width: 80%;
     float: right;
     margin: 2px 5px 5px 0px;
     font-size: 12px;
+}
+
+.event-food {
+    background-color: #DDF;
+}
+
+.event-hackathon {
+    background-color: #DDF;
+}
+
+.event-alcohol {
+    background-color: #DDF;
+}
+
+.event-charity {
+    background-color: #DDF;
+}
+
+.event-workshop {
+    background-color: #DDF;
 }
