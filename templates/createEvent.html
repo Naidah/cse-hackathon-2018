@@ -9,11 +9,9 @@
 
 {% block content %}
 <h1 align="center">Event Creator</h1>
-{% if invalid == True %}
-    <div style="text-align: center;">{{err.message}}</div>
-{% endif %}
-<form id="eventForm" method="POST" align="center">
-    <table id="creationTable">
+
+<form method="POST" align="center" action='addEvent'>
+    <table>
         <tr>
             <th>Event Type</th>
             <td><input type="radio" name="type" value="course"
@@ -29,25 +27,21 @@
         <tr>
             <th>Venue</th>
             <td><input type="text" name="venue" placeholder="Venue"
-             {% if form['type'] == "seminar" %} class="semDisable formDisabled" readonly="true" {% else %} class="semDisable" required {% endif %}
              value="{{form['venue']}}" autocomplete="off" required/></td>
         </tr>
         <tr>
             <th>Venue Capacity</th>
             <td><input type="text" name="capacity" placeholder="Max Capacity"
-             {% if form['type'] == "seminar" %} class="semDisable formDisabled" readonly="true" {% else %} class="semDisable" required {% endif %}
              value="{{form['capacity']}}" autocomplete="off" required/></td>
         </tr>
         <tr>
             <th>Event Date</th>
             <td><input type="text" name="eventdate" placeholder="yyyy/mm/dd"
-             {% if form['type'] == "seminar" %} class="semDisable formDisabled" readonly="true" {% else %} class="semDisable" required {% endif %}
              value="{{form['eventdate']}}" autocomplete="off" /></td>
         </tr>
         <tr>
             <th>Event Time</th>
             <td><input type="text" name="eventtime" placeholder="hh:mm"
-             {% if form['type'] == "seminar" %} class="semDisable formDisabled" readonly="true" {% else %} class="semDisable" required {% endif %}
              value="{{form['eventtime']}}" autocomplete="off" /></td>
         </tr>
 
