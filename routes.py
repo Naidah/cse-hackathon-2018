@@ -31,6 +31,8 @@ def addEvent():
         name = request.form['name']
         date = request.form['date_time']
         time = request.form['date_time']
+        print(date)
+        print(time)
         location = request.form['location']
         tags = request.form.getlist('type')
         system.create_event(name, date, time, location, tags, current_user._society)
