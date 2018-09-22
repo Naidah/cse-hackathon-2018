@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{url_for('static', filename='stylesheet.css')}}">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div id=menuBar>
+            {% if current_user.is_anonymous %}
+                <a href="{{url_for('login')}}"><div class="menuButton menuElem">Login</div></a>
+                <a href="{{url_for('guest_rego')}}"><div class="menuButton menuElem">Guest Rego</div></a>
+            {% else %}
+                <a href= "{{url_for('home')}}"><div class="menuButton menuElem">Home</div></a>
+                <a href= "{{url_for('search')}}"><div class="menuButton menuElem">Search</div></a>
+                <a href= "{{url_for('dashboard')}}"><div class="menuButton menuElem">Dashboard</div></a>
+                {% if current_user.is_staff() %}
+                    <a href="{{url_for('staffEvents')}}"><div class="menuButton menuElem">My Events</div></a>
+                    <a href="{{url_for('createEvent')}}"><div class="menuButton menuElem">Create Event</div></a>
+                {% endif%}
+                <a href="{{url_for('logout')}}"><div class="menuButton menuElem">Logout</div></a>
+                <div id="userDisplay" class="menuElem">Logged in as {{current_user.name}}</div>
+            {% endif %}
+            <br>
+        </div>
+        {% block content %}
+        {% endblock %}
+    </body>
+
+</html>
