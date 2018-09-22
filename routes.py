@@ -20,7 +20,19 @@ def login():
 @login_required
 def logout():
 	logout_user()
+    return redirect(url_for('calendar'))
+    
+@app.route('/addEvent')
+@login_required
+def addEvent():
+    if request.method == 'POST':
+        event_name = request.form['event_name']
+        date = request.form['date']
+        time = request.form['time']
+        location = request.form['location']
+        tagline = request.form['tagline']
+    
+    return render_template('createEvent.html')
+@app.route('/calendar')
+def addEvent():
 	return redirect(url_for('calendar'))
-
-
-
