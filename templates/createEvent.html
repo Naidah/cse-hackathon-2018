@@ -50,22 +50,7 @@
              {% if form['type'] == "seminar" %} class="semDisable formDisabled" readonly="true" {% else %} class="semDisable" required {% endif %}
              value="{{form['eventtime']}}" autocomplete="off" /></td>
         </tr>
-        <tr>
-            <th>Confirmation Deadline</th>
-            <td><input type="text" name="deregdate" placeholder="yyyy/mm/dd"
-             {% if form['type'] == "seminar" %} class="semDisable formDisabled" readonly="true" {% else %} class="semDisable" required {% endif %}
-             value="{{form['deregdate']}}" autocomplete="off" /></td>
-        </tr>
-        <tr>
-            <th>Registration Cost ($)</th>
-            <td><input type="text" name="cost" placeholder="Cost"
-             value="{{form['cost']}}" autocomplete="off" required/></td>
-        </tr>
-        <tr>
-            <th>End of Discount Period</th>
-            <td><input type="text" name="earlydate" placeholder="yyyy/mm/dd" required
-             value="{{form['earlydate']}}" autocomplete="off"/></td>
-        </tr>
+
     </table>
     <button type="submit" name="bt">Create Event</button>
 </Form>
