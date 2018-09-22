@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<head>
+<title>Search Portal</title>
+</head>
+{% endblock %}
+{% block content %}
+    <h1 id="dashboardTitle">Search Portal</h1>
+    <div align="center" class="searchFields">
+        <form>
+            <table id="creationTable">
+                <tr>
+                    <th>Name: </th>
+                    <td><input  type="text" name='name'/><br></td>
+                </tr>
+                <tr>
+                    <th>Venue: </th>
+                    <td><input  type="text" name='venue'/><br></td>
+                </tr>
+            </table>
+            <button type='submit'>Search</button>
+        </form>
+    </div>
+    <div id="eventHolder">
+        <div class="eventDisplay">
+            <h2 class="displayTitle">Courses</h2>
+            <div class="eventContainer">
+                {% for event in events %}
+                    {% if event.isSeminar() == False and event.canDisplay() %}
+                        {{disp(event)|safe}}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="eventDisplay">
+            <h2 class="displayTitle">Seminars</h2>
+            <div class="eventContainer">
+                {% for event in events %}
+                    {% if event.isSeminar() and event.canDisplay() %}
+                        {{disp(event)|safe}}
+                    {% endif %}                
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
