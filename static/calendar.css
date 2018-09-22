@@ -1,0 +1,13 @@
+tr {
+    height: calc((80vh / 6));
+}
+
+td {
+    font-size: 10px;
+    text-align: center;
+    width: calc(80vw / 7);
+}
+
+body {
+    text-align: center;
+}

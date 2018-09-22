@@ -5,7 +5,9 @@ window.onload = function() {
         for (let j = 0; j < 7; j++) {
             let newCell = document.createElement("td");
             let cellInfo = document.createElement("div");
-            cellInfo.innerHTML = i.toString() + ", " + j.toString();
+            if (Math.random() > 0.8) {
+                cellInfo.innerHTML = "Event here";
+            }
             newCell.appendChild(cellInfo);
             newRow.appendChild(newCell);
         }

@@ -3,6 +3,7 @@
 {% block head %}
     <title>Calendar</title>
     <script type="text/javascript" src="{{url_for('static', filename='calendar.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='calendar.css')}}">
 {% endblock %}
 
 {% block content %}
@@ -20,7 +21,17 @@
         <!-- Calendar Space -->
         <div class="col-10 d-block float-right" style="background-color: grey">
             <div></div>
-            <table id="calendar" class="table-bordered"></table>
+            <table id="calendar" class="table-bordered">
+                <tbody>
+                    {% for i in range(6) %}
+                        <tr>
+                        {% for j in range(7) %}
+                            <script type="text/javascript">test()</script>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
             <div></div>
         </div>
     </div>
