@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Calendar</title>
+    <script type="text/javascript" src="{{url_for('static', filename='calendar.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='calendar.css')}}">
+{% endblock %}
+
+{% block content %}
+
+    <!-- navbar -->
+  <!--   <div class="navbar d-inline-block w-100 h-40" style="background-color: blue">
+        <div class="nav-item">For Food's Sake</div>
+        <div class="nav-item float-right">Login</div>
+    </div> -->
+
+    <nav style="background-color: fuchsia; margin:  10px 0 10px 0;" class="navbar navbar-expand-sm navbar-dark bg-primary"">
+  <a class="navbar-brand" style="margin-left: 13px"><b>For Food's Sake</b></a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item ">
+      <a class="nav-link " href="{{ url_for('login') }}">Login</a>
+    </li>
+  </ul>
+
+    </nav>
+
+    <!-- Calendar Wrapper -->
+    <div class="h-80 d-flex flex-row">
+        <!-- Left Column -->
+        <div class="col-2 d-block" style="background-color: pink"></div>
+        <!-- Calendar Space -->
+        <div class="col-10 d-block float-right" style="background-color: grey">
+            <div></div>
+            <table id="calendar" class="table-bordered">
+                <tbody>
+                    {% for i in range(6) %}
+                        <tr>
+                        {% for j in range(7) %}
+                            <script type="text/javascript">test()</script>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div></div>
+        </div>
+    </div>
+{% endblock %}
