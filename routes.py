@@ -1,10 +1,11 @@
 from flask import render_template, request, redirect, url_for, abort
 from flask_login import login_required, current_user
 
-from server import app, system, auth_manager
+from server import app#, system, auth_manager
 
 @app.route('/')
-    def calendar():
+def calendar():
+    return render_template('index.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

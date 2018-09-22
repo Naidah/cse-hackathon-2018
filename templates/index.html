@@ -2,26 +2,26 @@
 
 {% block head %}
     <title>Calendar</title>
-    <script type="text/javascript" src={{"url_for('static', filename='calendar.js')"}}></script>
+    <script type="text/javascript" src="{{url_for('static', filename='calendar.js')}}"></script>
 {% endblock %}
 
 {% block content %}
 
-<!-- navbar -->
-<div>
-    <div>For Foods Sake</div>
-    <div>Login</div>
-</div>
-
-<!-- Calendar Wrapper -->
-<div>
-    <!-- Left Column -->
-    <div></div>
-    <!-- Calendar Space -->
-    <div>
-        <div></div>
-        <table id="Calendar"></table>
-        <div></div>
+    <!-- navbar -->
+    <div class="navbar d-inline-block w-100 h-40" style="background-color: blue">
+        <div class="nav-item">For Foods Sake</div>
+        <div class="nav-item float-right">Login</div>
     </div>
-</div>
+
+    <!-- Calendar Wrapper -->
+    <div class="h-80 d-flex flex-row">
+        <!-- Left Column -->
+        <div class="col-2 d-block" style="background-color: pink"></div>
+        <!-- Calendar Space -->
+        <div class="col-10 d-block float-right" style="background-color: grey">
+            <div></div>
+            <table id="calendar" class="table-bordered"></table>
+            <div></div>
+        </div>
+    </div>
 {% endblock %}
