@@ -49,3 +49,15 @@ td {
 .event-workshop {
     background-color: #1BEF2B;
 }
+
+.event-seminar {
+    background-color: pink;
+}
+
+.event-entertainment {
+    background-color: gold;
+}
+
+.event-physical {
+    background-color: silver;
+}
